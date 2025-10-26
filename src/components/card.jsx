@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Card = ({ title, description, icon, color, linkTo }) => {
+// Add 'id' here
+const Card = ({ title, description, icon, color, linkTo, id }) => {
   const colorVariants = {
     purple: 'bg-purple-100 text-purple-600',
     green: 'bg-green-100 text-green-600',
@@ -12,18 +13,19 @@ const Card = ({ title, description, icon, color, linkTo }) => {
   };
 
   return (
-    <Link to={linkTo} className="block group">
-        <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:border-blue-400 transition-all duration-300 h-full">
+    // And add it here
+    <Link to={linkTo} id={id} className="block group">
+      <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:border-blue-400 transition-all duration-300 h-full">
         <div className="flex items-start space-x-4">
-            <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${colorVariants[color]}`}>
+          <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${colorVariants[color]}`}>
             <span className="text-2xl font-bold">{icon}</span>
-            </div>
-            <div>
+          </div>
+          <div>
             <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600">{title}</h3>
             <p className="text-sm text-gray-500 mt-1">{description}</p>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </Link>
   );
 };
